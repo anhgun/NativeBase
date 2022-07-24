@@ -67,6 +67,9 @@ class ActionSheetContainer extends Component {
         message: config.message,
         destructiveButtonIndex: config.destructiveButtonIndex,
         cancelButtonIndex: config.cancelButtonIndex,
+        typeIcon: config.typeIcon,
+        textStyle: config.textStyle,
+        iconStyle: config.iconStyle,
         modalVisible: true,
         callback
       });
@@ -135,13 +138,14 @@ class ActionSheetContainer extends Component {
                     <Left>
                       <Icon
                         name={item.icon}
-                        style={{
+                        style={[{
                           color: item.iconColor ? item.iconColor : undefined
-                        }}
+                        }, this.state.iconStyle]}
+                        type={this.state.typeIcon}
                       />
                     </Left>
                     <Body style={styles.listItemBody}>
-                      <Text>{item.text}</Text>
+                      <Text style= {this.state.textStyle}>{item.text}</Text>
                     </Body>
                     <Right />
                   </ListItem>
